@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<style>
+    body {
+        background-color: #121212;
+    }
+    h1{
+        color: white;
+    }
+    .container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100vh; /* Set container height to full viewport height */
+        flex-direction: column;
+    }
+    button {
+        background-color: #662bc4;
+        border: none;
+        width: 120px;
+        height: 40px;
+        border-radius: 12px;
+
+        font-size: 20px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: #52239e;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1 id="text">Waaaaa, ce puta mare ai</h1>
+        <button id="button" onclick="bClick()">Apasa-ma</button>
+    </div>
+</body>
+</html>
+<script>
+    const button = document.getElementById("button");
+    const text = document.getElementById("text");
+    const body = document.body;
+    const audio = new Audio("song.mp3");
+    
+    function bClick()
+    {
+        // Hide buttons
+        button.style.visibility = "hidden";
+        text.style.visibility = "hidden";
+
+        // Change the background to the picture
+        body.style.backgroundImage = "url('picture.jpg'";
+        body.style.backgroundRepeat = "no-repeat";
+        body.style.backgroundSize = "cover";
+
+        // Play the music
+        audio.play();
+    }
+</script>
