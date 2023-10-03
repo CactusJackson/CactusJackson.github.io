@@ -28,6 +28,7 @@
 
         font-size: 20px;
         cursor: pointer;
+        color: black;
     }
     button:hover{
         background-color: #52239e;
@@ -45,17 +46,38 @@
     const text = document.getElementById("text");
     const body = document.body;
     const audio = new Audio("song.mp3");
+
+    // Change the size of the button because on phone the text is fucked
+    button.style.fontSize = "16px";
     
+    function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
     function bClick()
     {
         // Hide buttons
         button.style.visibility = "hidden";
         text.style.visibility = "hidden";
 
-        // Change the background to the picture
-        body.style.backgroundImage = "url('picture.jpg'";
-        body.style.backgroundRepeat = "no-repeat";
-        body.style.backgroundSize = "cover";
+        if (isMobile()) {
+            console.log("You are on a mobile device.");
+
+            // Change the background to the picture
+            body.style.backgroundImage = "url('picture_mobile.jpg'";
+            body.style.backgroundRepeat = "no-repeat";
+            body.style.backgroundSize = "cover";
+            body.style.backgroundPosition = "center";
+            
+        } else {
+            console.log("You are not on a mobile device.");
+
+            // Change the background to the picture
+            body.style.backgroundImage = "url('picture.jpg'";
+            body.style.backgroundRepeat = "no-repeat";
+            body.style.backgroundSize = "cover";
+            body.style.backgroundPosition = "center";
+        }
 
         // Play the music
         audio.play();
